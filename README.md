@@ -1,5 +1,10 @@
 # CredPal Assessment Flutter App
 
+
+## Kindly find the Google Drive link to the apk and app screenshot below
+https://drive.google.com/drive/folders/1a67-qfuUZkWcg8bmxJB6njzvgpWQL4iO?usp=sharing
+
+
 Flutter app with responsive design and custom UI components.
 
 ## Prerequisites
