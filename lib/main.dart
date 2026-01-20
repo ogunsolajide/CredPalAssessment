@@ -1,4 +1,10 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:assesment/shared/utility/colors.dart';
+import 'package:assesment/shared/utility/texts.dart';
+import 'package:assesment/shared/utility/widgets.dart';
+import 'package:assesment/ui/dashboard_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,27 +16,38 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+    return ScreenUtilInit(
+        designSize: const Size(414, 896),
+        minTextAdapt: true, splitScreenMode: true,
+        builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+          ),
+          home: splashScreen(),
+        );
+      }
+    );
+  }
+
+  Widget splashScreen() {
+    return whiteStatusBar(
+       body: AnimatedSplashScreen(
+        duration: 2000,
+        splashIconSize: 1000,
+        splash: Column(
+          children: [
+            const Spacer(),
+            defaultText("CredPal",30.sp,color: AppColors.white,weight: FontWeight.w900),
+            const Spacer(),
+          ],
+        ),
+        centered: true,
+        nextScreen: DashboardView(),
+        backgroundColor: AppColors.primary,
       ),
-      home: Container(),
     );
   }
 }
