@@ -121,14 +121,15 @@ Container deviceItemWidget({required String title,required String price,required
               gapH(5.h),
               Row(mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  Container(
                     width: 112.h,height: 96.h,
-                    child: Image.asset(image,width: 112.h,height: 96.h,fit: BoxFit.cover,),
+                    child: Image.asset(image,fit: BoxFit.fill,),
                   ),
                 ],
               ),
+              Spacer(),
               itemTitleTxt(title),
-              gapH(10.h),
+              gapH(8.h),
               Expanded(
                 child: Row(mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -142,7 +143,7 @@ Container deviceItemWidget({required String title,required String price,required
         ),
         Positioned(
             top: 8.h,
-            left: 5.w,
+            left: 8.w,
             child: Container(
               width: 50.w,height: 50.h,
               decoration: BoxDecoration(
