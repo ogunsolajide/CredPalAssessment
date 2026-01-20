@@ -26,7 +26,12 @@ AnnotatedRegion<SystemUiOverlayStyle> whiteStatusBar({required Widget body }) {
       value:const SystemUiOverlayStyle(
           statusBarColor: Colors.transparent,
           statusBarBrightness: Brightness.dark,
-          statusBarIconBrightness:  Brightness.light
+          statusBarIconBrightness:  Brightness.light,
+          // For Android navigation bar
+          systemNavigationBarColor: Colors.white,
+          systemNavigationBarIconBrightness: Brightness.dark,
+          // For iOS bottom bar
+          systemNavigationBarDividerColor: Colors.transparent
       ),
       child: body
   );
@@ -50,8 +55,7 @@ Container appBar({required String shoppingLimit,required Function() onTapActivat
     ),
     child: Column(
       children: [
-        SafeArea(top: true,
-            child: SizedBox()),
+        SafeArea(top: true, child: SizedBox()),
         Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Row(crossAxisAlignment: CrossAxisAlignment.end,

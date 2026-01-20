@@ -4,10 +4,13 @@ import 'package:assesment/shared/utility/texts.dart';
 import 'package:assesment/shared/utility/widgets.dart';
 import 'package:assesment/ui/dashboard_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
 }
 
 class MyApp extends StatelessWidget {
